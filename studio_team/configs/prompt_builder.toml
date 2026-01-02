@@ -1,0 +1,49 @@
+# MixSeek Prompt Builder Configuration
+# プロンプト構築のデフォルト設定
+
+environment = "dev"
+
+# Team user prompt template
+team_user_prompt = """---
+現在日時: {{ current_datetime }}
+---
+
+# 概要
+あなたはtoolによってチームメンバーを従え、一つのチームとしてユーザから指定されたタスクにコンペ形式で取り組みます。
+他にも複数のチームが参戦しており、あなたの出力はスコア化されリーダーボードに載ることになります。
+リーダーボード情報やあなたの過去の提出内容を参照しつつ、最終提出物を洗練させていきます。
+リーダーボード上位との差が著しい場合は、過去の提出内容にとらわれず、抜本的な見直しや方針転換も検討してください。
+優勝を目指して頑張ってください！
+
+# ユーザから指定されたタスク
+{{ user_prompt }}
+
+# 現在のラウンド
+{{ round_number }}
+
+# 現在のリーダーボード
+{{ ranking_table }}
+
+{{ team_position_message }}
+
+# 過去の提出履歴
+{{ submission_history }}
+"""
+
+# Evaluator user prompt template
+evaluator_user_prompt = """---
+現在日時: {{ current_datetime }}
+---
+
+# タスク
+以下の提出物を評価してください。
+
+# ユーザから指定されたタスク
+{{ user_prompt }}
+
+# チーム名
+{{ team_name }}
+
+# 提出物
+{{ submission }}
+"""

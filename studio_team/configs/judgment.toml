@@ -1,0 +1,33 @@
+# MixSeek Judgment Configuration
+# ラウンド継続判定のデフォルト設定
+
+environment = "dev"
+
+# LLM model for improvement judgment
+# Format: "provider:model-name"
+model = "openai:gpt-4o"
+
+# Temperature for LLM calls (0.0 = deterministic, recommended for judgment)
+temperature = 0.0
+
+# Optional: Maximum tokens (None = use LLM default)
+# max_tokens = 1024
+
+# Maximum retry attempts for API calls
+max_retries = 3
+
+# Timeout in seconds for judgment API calls
+timeout_seconds = 60
+
+# Optional: Stop sequences
+# stop_sequences = ["END"]
+
+# Optional: Top-p sampling (None = use LLM default)
+# top_p = 0.95
+
+# Optional: Random seed for reproducibility (supported by OpenAI/Gemini, not Anthropic)
+# seed = 42
+
+# Default system instruction for judgment
+# If not specified in task-specific config, this will be used
+# system_instruction = null
